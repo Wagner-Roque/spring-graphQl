@@ -1,0 +1,33 @@
+type Person{
+    id: ID!,
+    name: String,
+    age: Integer,
+    gender: Gender,
+   
+}
+
+
+ENUM Gender {
+    MALE
+    FEMALE
+}
+
+input PersonInput{
+    name: String,
+    age: Integer,
+    gender: Gender
+}
+
+type Query{
+    findAllPeople: [Person]
+   
+}
+
+type Mutation{
+    savePerson(person: PersonInput): Person
+    
+}
+
+type Subscription{
+    onPersonUpdated(personId: Integer): Person
+}
